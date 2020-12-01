@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <sale>
+        <id>0</id>
+        <sellerId>1</sellerId>
+        <itemId>2</itemId>
+        <amount>1</amount>
+        <date>11.11.2020</date>
+    </sale>
+    <sale>
+        <id>1</id>
+        <sellerId>0</sellerId>
+        <itemId>0</itemId>
+        <amount>2</amount>
+        <date>25.11.2020</date>
+    </sale>
+    <sale>
+        <id>2</id>
+        <sellerId>1</sellerId>
+        <itemId>0</itemId>
+        <amount>1</amount>
+        <date>25.11.2020</date>
+    </sale>
+    <sale>
+        <id>3</id>
+        <sellerId>3</sellerId>
+        <itemId>3</itemId>
+        <amount>4</amount>
+        <date>27.11.2020</date>
+    </sale>
+    <sale>
+        <id>4</id>
+        <sellerId>2</sellerId>
+        <itemId>3</itemId>
+        <amount>12</amount>
+        <date>27.11.2020</date>
+    </sale>
+    <sale>
+        <id>5</id>
+        <sellerId>1</sellerId>
+        <itemId>3</itemId>
+        <amount>10</amount>
+        <date>25.11.2020</date>
+    </sale>
+</root>

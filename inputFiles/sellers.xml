@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<seller>
+    <id>0</id>
+    <name>Paul</name>
+    <surname>Pip</surname>
+</seller>
+    <seller>
+        <id>1</id>
+        <name>Lola</name>
+        <surname>Patt</surname>
+    </seller>
+    <seller>
+        <id>2</id>
+        <name>Creg</name>
+        <surname>Jonson</surname>
+    </seller>
+    <seller>
+        <id>3</id>
+        <name>Rita</name>
+        <surname>Ora</surname>
+    </seller>
+</root>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<item>
+    <id>0</id>
+    <name>Chicken</name>
+</item>
+    <item>
+        <id>1</id>
+        <name>Plate</name>
+    </item>
+    <item>
+        <id>2</id>
+        <name>Cow</name>
+    </item>
+    <item>
+        <id>3</id>
+        <name>Phone</name>
+    </item>
+</root>
