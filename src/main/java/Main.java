@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
     public static List<Item> listOfItems;
@@ -38,26 +37,10 @@ public class Main {
      * Выводит в файл общее количество проданных товаров этого типа
      */
     public static void amountOfItemSoldToJson() throws IOException {
-        Map<Integer, Integer> itemAmount = new HashMap<>();
-        int full = 0;
-       /* for (Item i :
-                listOfItems) {
-            for (Sale sale1 :
-                    listOfSales) {
-                if (sale1.getItem().getId() == i.getId()) {
-                    full = full + sale1.getAmount();
-                }
-            }
-            System.out.println(i.getId() + " - " + full);
-            full = 0;
-        }*/
-        listOfItems.stream()
-                .forEach(i -> itemAmount.put(i.getId(), (listOfSales.stream()
-                        .filter(sale -> sale.getItem().getId() == i.getId())
-                        .mapToInt(sale -> sale.getAmount()).sum())));
-
+       Map<Integer, Integer> one = listOfSales.stream()
+               .collect(Collectors.groupingBy(sale->sale.getItem().getId(), Collectors.summingInt(sale->sale.getAmount())));
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(new File("outputFiles//out1.json"), itemAmount);
+        mapper.writeValue(new File("outputFiles//out1.json"), one);
     }
 
     /**
@@ -66,27 +49,10 @@ public class Main {
      * @throws IOException
      */
     public static void generalAmountOfSalesByDatesToJson() throws IOException {
-        Set<LocalDate> dmy = new HashSet<>();
-        listOfSales.stream()
-                .forEach(sale -> dmy.add(sale.getDate()));
-
-        Map<LocalDate, Integer> ds = new HashMap<>();
-        /*for (LocalDate ld :
-                dmy) {
-            int amount = (int) listOfSales.stream()
-                    .filter(sale -> (ld.equals(sale.getDate()))).count();
-
-            ds.addDateAndSales(ld, amount);
-            System.out.println(ld + " - " + amount);
-        }*/
-        dmy.stream()
-                .forEach(ld -> {
-                            ds.put(ld, (int) listOfSales.stream()
-                                    .filter(sale -> (ld.equals(sale.getDate()))).count());
-                        }
-                );
+        Map<LocalDate, Integer> two = listOfSales.stream()
+                .collect(Collectors.groupingBy(Sale::getDate, Collectors.summingInt(sale->sale.getAmount())));
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(new File("outputFiles//out2.json"), ds);
+        mapper.writeValue(new File("outputFiles//out2.json"), two);
     }
 
 }
